@@ -37,15 +37,17 @@ class DB:
 
     def find_state(self):
         """find state"""
-        pass
+        result = self.states.find_one({'state': state.tolist()})
+        return result
 
-    def store_state(self):
+    def store_state(self, state):
         """store state"""
-        pass
+        result = self.states.insert_one({'state': state.tolist()})
+        return result
 
-    def find_action(self):
+    def find_action(self, action):
         """"find action"""
-        pass
+        result = self.actions.find_one({'action': action.tolist()})
 
     def store_action(self):
         """store action"""
@@ -82,6 +84,17 @@ class DB:
         def get_next_states(self, state, actions):
             """get next states"""
         pass
+
+"""get next actions"""
+
+
+def get_next_actions(state):
+    return 0
+"""get next states"""
+
+
+def get_next_states(state):
+    return 0
 
 
 class Policy:
@@ -130,8 +143,9 @@ def bellman_value_equation(state, actions, gamma, db):
 """
     value network
 """
-class Value:
-    def __init__(self):
-        return 0
 
-    def
+
+def value_updater(state, db):
+    actions = get_possible_actions(state)
+    states = get_next_state(state)
+    value = bellman_value_equation(

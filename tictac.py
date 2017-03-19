@@ -15,12 +15,23 @@ class Tictac:
 
     def search_possible_steps(self):
         """search possible steps, return all steps available as an array"""
-        possible_steps_turple = (self == 0)
-        possible_steps = np.transpose(possible_steps_turple.non_zero())
+        if self.ended:
+            return False
+        possible_steps_turple = (self.board == 0)
+        possible_steps = np.transpose(possible_steps_turple.nonzero())
         return possible_steps
 
     def get_next_states(self):
-        return {}
+        if self.ended:
+            return False
+        possible_steps = self.search_possible_steps()
+        next_color = self.color * -1
+        n = possible_steps.shape[0]
+        next_states = np.zeros([n, 3, 3])
+        for i in range(n):
+            x, y = possible_steps[i]
+            next_states[i][x][y] = next_color
+        return next_states
 
     def play(self, x, y):
         """play at centain position"""
@@ -69,4 +80,3 @@ class Tictac:
         """reset"""
         self = self.__init__()
         return self
-
