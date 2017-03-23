@@ -17,3 +17,8 @@ a.play(2, 1)
 winner = a.play(2, 2)
 a.printBoard()
 print winner
+
+# reset game
+a.reset()
+
+#
