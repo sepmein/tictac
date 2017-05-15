@@ -60,7 +60,7 @@ class Tictac:
         """play at centain position"""
         (x, y) = position
         if self.board[x][y] != 0:
-            print 'Error, ' + str(x) + ',' + str(y) + ' is not a possible state'
+            print('Error, ' + str(x) + ',' + str(y) + ' is not a possible state')
             return
         else:
             self.board[x][y] = self.color
@@ -92,7 +92,7 @@ class Tictac:
 
     def print_board(self):
         """print out the board"""
-        print self.board
+        print(self.board)
 
     def generate_and_store_game_by_policy(self, policy):
         """generate a game with policy"""
@@ -102,7 +102,7 @@ class Tictac:
             action = policy.pai(self.board)
             # next_state = self.play(action)
             # next_value = db.find_value(next_state)
-            print self.board
+            print(self.board)
 
     def reset(self):
         """reset"""
