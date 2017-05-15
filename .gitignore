@@ -1,4 +1,6 @@
 tags
+*.egg-info
+dist
 *.pyc
 *.npy
 .DS_store
