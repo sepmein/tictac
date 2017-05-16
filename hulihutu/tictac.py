@@ -8,9 +8,9 @@ import numpy as np
 class Tictac:
     """
         Tictac module
-        Black is 1, white is -1
-        reward for black win is 1,
-        reward for white win or draw is -1
+        circle is 1, cross is -1
+        reward for circle win is 1,
+        reward for cross win or draw is -1
     """
 
     def __init__(self):
@@ -43,8 +43,8 @@ class Tictac:
 
     def get_reward(self, actions, next_states):
         """check one of the board, if game has ended
-            define black as 1, white as -1
-            if black wins return reward 1
+            define circle as 1, cross as -1
+            if circle wins return reward 1
             else return reward 0
         """
         r = []
@@ -93,6 +93,14 @@ class Tictac:
     def print_board(self):
         """print out the board"""
         print(self.board)
+    
+    def set_board(board):
+        """
+            set board with a board object
+            example: 
+            {'one':1, 'five':2, 'nine':1}
+        """
+        
 
     def generate_and_store_game_by_policy(self, policy):
         """generate a game with policy"""
